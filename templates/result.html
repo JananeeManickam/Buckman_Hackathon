@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Risk Level Prediction Result</title>
+    <style>
+      body {
+        background-color: black;
+        color: white;
+        font-family: Arial, sans-serif;
+      }
+      h1,
+      h2 {
+        color: white;
+      }
+      p {
+        color: white;
+      }
+      .graph-container {
+        margin-top: 20px;
+        text-align: center;
+      }
+      img {
+        width: 80%;
+        height: auto;
+        display: block;
+        margin: 20px auto;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Risk Level Prediction Result</h1>
+    <p>
+      Predicted Risk Level: {% if risk_level == 'HIGH RISK INVOLVED' %}
+      <span style="color: red">{{ risk_level }}</span>
+      {% elif risk_level == 'MEDIUM RISK INVOLVED' %}
+      <span style="color: orange">{{ risk_level }}</span>
+      {% else %}
+      <span style="color: green">{{ risk_level }}</span>
+      {% endif %}
+    </p>
+    <div class="graph-container">
+      <h2>Correlation Matrix of Selected Factors</h2>
+      <img src="{{ correlation_plot }}" alt="Correlation Matrix" />
+    </div>
+    <div class="graph-container">
+      <h2>Feature Importances</h2>
+      <img src="{{ feature_importances_plot }}" alt="Feature Importances" />
+    </div>
+  </body>
+</html>

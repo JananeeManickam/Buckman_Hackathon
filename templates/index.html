@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Risk Level Prediction</title>
+    <style>
+      $primary: #11998e;
+      $secondary: #38ef7d;
+      $white: #fff;
+      $gray: #9b9b9b;
+      .form__group {
+        position: relative;
+        padding: 15px 0 0;
+        margin-top: 10px;
+        color: $white;
+        width: 50%;
+      }
+
+      .form__field {
+        font-family: inherit;
+        width: 100%;
+        border: 0;
+        border-bottom: 2px solid $gray;
+        outline: 0;
+        font-size: 1.3rem;
+        color: $white;
+        padding: 7px 0;
+        background: transparent;
+        transition: border-color 0.2s;
+
+        &::placeholder {
+          color: $white;
+        }
+
+        &:placeholder-shown ~ .form__label {
+          font-size: 1.3rem;
+          cursor: text;
+          top: 20px;
+          color: $white;
+        }
+      }
+
+      .form__label {
+        position: absolute;
+        top: 0;
+        display: block;
+        color: $white;
+        transition: 0.2s;
+        font-size: 1rem;
+        color: $gray;
+      }
+
+      .form__field:focus {
+        ~ .form__label {
+          position: absolute;
+          top: 0;
+          display: block;
+          transition: 0.2s;
+          font-size: 1rem;
+          color: $white;
+          font-weight: 700;
+        }
+        padding-bottom: 6px;
+        font-weight: 700;
+        color: $white;
+        border-width: 3px;
+        border-image: linear-gradient(to right, $primary, $secondary);
+        border-image-slice: 1;
+      }
+      /* reset input */
+      .form__field {
+        &:required,
+        &:invalid {
+          box-shadow: none;
+        }
+      }
+      /* demo */
+      body {
+        color: $white;
+        font-family: "Poppins", sans-serif;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        font-size: 1.5rem;
+        background-color: #222222;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="form__group field">
+      <h1 style="color: white">Risk Level Prediction</h1>
+      <form action="/result" method="post">
+        <label for="knowledge_share_market" style="color: white"
+          >Knowledge about share market (1-10):</label
+        ><br />
+        <input
+          type="number"
+          id="knowledge_share_market"
+          name="knowledge_share_market"
+          min="1"
+          max="10"
+        /><br /><br />
+        <label for="knowledge_investment_prod" style="color: white"
+          >Knowledge about investment products (1-10):</label
+        ><br />
+        <input
+          type="number"
+          id="knowledge_investment_prod"
+          name="knowledge_investment_prod"
+          min="1"
+          max="10"
+        /><br /><br />
+        <label for="household_income" style="color: white"
+          >Household income (in US$):</label
+        ><br />
+        <input
+          type="number"
+          id="household_income"
+          name="household_income"
+        /><br /><br />
+        <label for="investor_influencer" style="color: white"
+          >Investment influencer (0-5):</label
+        ><br />
+        <input
+          type="number"
+          id="investor_influencer"
+          name="investor_influencer"
+          min="0"
+          max="5"
+        /><br /><br />
+        <label for="investment_percentage" style="color: white"
+          >Investment percentage (0-100%):</label
+        ><br />
+        <input
+          type="number"
+          id="investment_percentage"
+          name="investment_percentage"
+          min="0"
+          max="100"
+        /><br /><br /><br />
+        <input type="submit" value="Submit" />
+      </form>
+    </div>
+  </body>
+</html>
